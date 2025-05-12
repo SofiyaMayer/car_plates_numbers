@@ -28,11 +28,15 @@ cd license-plate-detection
 2. Install dependencies
 !pip install ultralytics cv2 paddleocr filterpy, sort
 
-## Usage
-
-1. Detection on video
+Detection on video
 
 In model testing this video was used:
 https://www.pexels.com/video/traffic-flow-in-the-highway-2103099/
+
+## Usage
+
+1. Train yolov8n on your dataset with train_script.py or just use license_plate.pt for license plates recognition.
+2. Use detection.py as a main script for detecting license plates numbers.
+
 
 
