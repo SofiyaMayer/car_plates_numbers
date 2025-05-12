@@ -1,32 +1,43 @@
-An efficient Automatic License Plate Recognition (ALPR) system combining YOLOv8 for detection, SORT for tracking, and PaddleOCR for text recognition. Designed for real-world deployment with optimized performance.
+# Automatic License Plate Recognition (ALPR) System
 
-## Features
+![License Plate Detection Example](assets/demo.gif) <!-- Add a demo gif/screenshot here -->
 
-- 🚗 **Direct license plate detection** using custom-trained YOLOv8n model
-- 🔍 **High-accuracy OCR** with PaddleOCR (superior to EasyOCR for angled/blurry plates)
-- 🏷️ **Frame-to-frame tracking** using SORT algorithm
-- ⚡ **Optimized performance** for edge devices and Google Colab
-- 📹 **Video processing** with frame-by-frame analysis
-- 📊 **Comprehensive outputs** including annotated videos and plate data
+An end-to-end license plate recognition system using YOLOv8 for detection, SORT for tracking, and PaddleOCR for text extraction. Optimized for real-time performance on edge devices.
 
-## Performance
+## Key Features
 
-| Metric            | Value   |
-|-------------------|---------|
-| mAP50             | 98.6%   |
-| mAP50-95          | 70%     |
-| OCR Confidence    | ≥0.7    |
-| FPS (1080p)       | ~25-30  |
+- 🚗 **YOLOv8-based detection** - Custom-trained model (`license_plate.pt`) specifically for license plates
+- 🔍 **PaddleOCR integration** - Superior accuracy for angled, blurry, or low-quality plates compared to EasyOCR
+- 📹 **Video processing** - Handles MP4, AVI, and other common video formats
+- 🏷️ **Real-time tracking** - SORT algorithm maintains consistent IDs across frames
+- 📁 **Multiple outputs** - Generates annotated videos, cropped plates, and text logs
+
+## Performance Metrics
+
+| Metric            | Value   | Notes                          |
+|-------------------|---------|--------------------------------|
+| mAP50             | 98.6%   | Detection accuracy             |
+| mAP50-95          | 70%     | Robustness across IoU thresholds|
+| OCR Confidence    | ≥0.7    | Minimum threshold for valid reads |
+| Processing Speed  | 25-30 FPS | On 1080p video (RTX 3060)     |
 
 ## Installation
 
-1. Clone the repository:
+### Prerequisites
+- Python 3.8 or higher
+- NVIDIA GPU (recommended) with CUDA 11.7
+
+### Steps
 ```bash
+# Clone repository
 git clone https://github.com/yourusername/license-plate-detection.git
 cd license-plate-detection
 ```
-2. Install dependencies
-!pip install ultralytics cv2 paddleocr filterpy, sort
+
+```bash
+# Install dependencies
+pip install ultralytics paddleocr filterpy cv2
+```
 
 Detection on video
 
@@ -36,7 +47,10 @@ https://www.pexels.com/video/traffic-flow-in-the-highway-2103099/
 ## Usage
 
 1. Train yolov8n on your dataset with train_script.py or just use license_plate.pt for license plates recognition.
-2. Use detection.py as a main script for detecting license plates numbers.
+2. Use detection.py as a main script for detecting license plates numbers, upload your path to testing video first.
+
+Dataset that was used for training YOLOv8n:
+https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4 (download in your yolo format)
 
 
 
