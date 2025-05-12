@@ -25,7 +25,7 @@ An end-to-end license plate recognition system using YOLOv8 for detection, SORT 
 
 ### Prerequisites
 - Python 3.8 or higher
-- NVIDIA GPU (recommended) with CUDA 11.7
+- NVIDIA GPU (recommended) with CUDA 11.7 
 
 ### Steps
 ```bash
