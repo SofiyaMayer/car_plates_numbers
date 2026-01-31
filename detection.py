@@ -2,8 +2,9 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 from paddleocr import PaddleOCR
-from sort.sort import Sort
+#from sort.sort import Sort
 import os
+print("hell")
 
 # Conditionally import Google Colab files module
 try:
@@ -21,7 +22,22 @@ if not os.path.exists('cropped_plates'):
 # Configuration
 TARGET_PLATE = "EL924CF"
 detected_frame_path = "target_car_detected.jpg"
-video_path = 'input1.mp4'
+
+# Use webcam from cv2
+cam = cv2.VideoCapture(0)
+if not cap.isOpened():
+    print("Cannot open camera")
+    exit()
+while True:
+    ret, frame = cap.read()
+
+    cv.imshow('frame', gray)
+    if cv.waitKey(1) == ord('q'):
+        break
+
+cap.release()
+cv.destroyAllWindows()
+
 output_video_path = "car_detection_output1.mp4"
 
 # Load models (only once)
@@ -47,7 +63,7 @@ box_color = (0, 255, 0)  # Green color for boxes
 ocr_conf_threshold = 0.7  # Confidence threshold for OCR result
 
 # Load video
-cap = cv2.VideoCapture(video_path)
+cap = cam
 fps = int(cap.get(cv2.CAP_PROP_FPS))
 frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))

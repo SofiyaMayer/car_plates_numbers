@@ -35,8 +35,8 @@ cd license-plate-detection
 ```
 
 ```bash
-# Install dependencies
-pip install ultralytics paddleocr filterpy cv2
+# Install dependencies with uv https://docs.astral.sh/uv/
+uv sync
 ```
 
 Detection on video

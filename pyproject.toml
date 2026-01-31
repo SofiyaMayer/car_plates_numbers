@@ -1,0 +1,17 @@
+[project]
+name = "car-plates-numbers"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.9.*"
+dependencies = [
+    "filterpy",
+    "opencv-python",
+    "paddleocr",
+    "paddlepaddle>=3.0.0",
+    "setuptools>=80.4.0",
+    "ultralytics",
+]
+
+[tool.uv]
+exclude-newer = "2025-05-13T02:07:43Z"
