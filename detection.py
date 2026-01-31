@@ -67,7 +67,7 @@ target_car_detected = False
 plate_history_dict = {}  # Track plate readings per vehicle
 stable_plates = {}  # For storing stable license plate readings
 
-while cap.isOpened():
+while True:
     ret, frame = cap.read()
     if not ret:
         break

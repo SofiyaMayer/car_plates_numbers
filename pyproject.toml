@@ -5,13 +5,20 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = "==3.9.*"
 dependencies = [
-    "filterpy",
+    "filterpy==1.4.5",
+    "lap>=0.5.12",
+    "numpy>=2.0.2",
     "opencv-python",
     "paddleocr",
     "paddlepaddle>=3.0.0",
+    "scikit-image>=0.24.0",
     "setuptools>=80.4.0",
     "ultralytics",
 ]
 
 [tool.uv]
 exclude-newer = "2025-05-13T02:07:43Z"
+
+[tool.uv.extra-build-dependencies]
+scikit-image = ["numpy", "distutils.msvccompiler"]
+
